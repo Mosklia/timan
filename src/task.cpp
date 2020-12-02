@@ -29,3 +29,15 @@ bool task::operator<(const task &t) const
 {
     return getpriority() < t.getpriority();
 }
+
+std::istream& operator>>(std::istream &in, task &tk)
+{
+	in >> tk.name >> tk.level >> tk.ddl.tm_year >> tk.ddl.tm_mon >> tk.ddl.tm_mday;
+	return in;
+}
+
+std::ostream& operator<<(std::ostream &out, const task &tk)
+{
+	out << tk.name << tk.level << tk.ddl.tm_year << tk.ddl.tm_mon << tk.ddl.tm_mday;
+	return out;
+}

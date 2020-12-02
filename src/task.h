@@ -1,6 +1,7 @@
 #include <string>
 #include <ctime>
 #include <iostream>
+#include <iomanip>
 
 /**
  * @brief Struct task -- Info about a task.
@@ -18,7 +19,7 @@ struct task
      * @param t Source task.
      * @return task& A reference to *this.
      */
-    task &operator=(const task &t);
+    task& operator=(const task &t);
 
     /**
      * @brief Get the priority of this task.
@@ -36,17 +37,31 @@ struct task
      */
     bool operator<(const task &t) const;
 
-    void in()
-    {
-        std::cin >> name >> level >> ddl.tm_year >> ddl.tm_mon >> ddl.tm_mday;
-    }
-    void outf(std::ofstream &out)
-    {
-        out << name << " " << level << " " << ddl.tm_year << " " << ddl.tm_mon << " " << ddl.tm_mday << "\n";
-    }
-    void out()
-    {
-        std::cout << "task name:" << name << "   level:" << level << "   ";
-        printf("deadline:%04d-%02d-%02d", ddl.tm_year, ddl.tm_mon, ddl.tm_mday);
-    }
+    /**
+     * @brief Read a task from istream @a in.
+     * 
+     * @param in Source istream.
+     * @param tk Variable to be write.
+     * @return std::istream&
+     */
+    friend std::istream& operator>>(std::istream &in, task &tk);
+
+    // void outf(std::ofstream &out)
+    // {
+    //     out << name << " " << level << " " << ddl.tm_year << " " << ddl.tm_mon << " " << ddl.tm_mday << "\n";
+    // }
+    // void out()
+    // {
+    //     std::cout << "task name:" << name << "   level:" << level << "   ";
+    //     printf("deadline:%04d-%02d-%02d", ddl.tm_year, ddl.tm_mon, ddl.tm_mday);
+    // }
+
+    /**
+     * @brief Write a task to ostream @a out.
+     * 
+     * @param out Ostream to write.
+     * @param tk Source task.
+     * @return std::ostream& 
+     */
+    friend std::ostream& operator<<(std::ofstream &out, const task &tk);
 };
