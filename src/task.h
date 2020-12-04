@@ -46,16 +46,6 @@ struct task
      */
     friend std::istream& operator>>(std::istream &in, task &tk);
 
-    // void outf(std::ofstream &out)
-    // {
-    //     out << name << " " << level << " " << ddl.tm_year << " " << ddl.tm_mon << " " << ddl.tm_mday << "\n";
-    // }
-    // void out()
-    // {
-    //     std::cout << "task name:" << name << "   level:" << level << "   ";
-    //     printf("deadline:%04d-%02d-%02d", ddl.tm_year, ddl.tm_mon, ddl.tm_mday);
-    // }
-
     /**
      * @brief Write a task to ostream @a out.
      * 
@@ -63,5 +53,20 @@ struct task
      * @param tk Source task.
      * @return std::ostream& 
      */
-    friend std::ostream& operator<<(std::ofstream &out, const task &tk);
+    friend std::ostream& operator<<(std::ostream &out, const task &tk);
+
+    // void outf(std::ofstream &out)
+    // {
+    //     out << name << " " << level << " " << ddl.tm_year << " " << ddl.tm_mon << " " << ddl.tm_mday << "\n";
+    // }
+
+    /**
+     * @brief Print @a *this to ostream @a out, ending with @a end.
+     * 
+     * @param out Output stream.
+     * @param end Ending character(s).
+     */
+    void printTo(std::ostream &out) const;
 };
+
+#include "task.cpp"
