@@ -62,21 +62,35 @@ bool operator<(tm a, tm b)
                 if (a.tm_hour == b.tm_hour)
                 {
                     if (a.tm_min == b.tm_min)
+                    {
                         return a.tm_sec < b.tm_sec;
+                    }
                     else
+                    {
                         return a.tm_min < b.tm_min;
+                    }
                 }
                 else
+                {
                     return a.tm_hour < b.tm_hour;
+                }
+                    
             }
             else
+            {
                 return a.tm_mday < b.tm_mday;
+            }
+                
         }
         else
+        {
             return a.tm_mon < b.tm_mon;
+        }
     }
     else
+    {
         return a.tm_year < b.tm_year;
+    }
 }
 
 int operator-(tm a, tm b)

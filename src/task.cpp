@@ -14,7 +14,7 @@ int task::getpriority() const
 	int value = 0;
 	int t = ddl - gettime();
 
-	// Increase prrioity when ddl is near.
+	// Increase priority when ddl is near.
 	if (t <= 2)
 	{
 		value += 10000 * (3 - t);

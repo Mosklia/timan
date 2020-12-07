@@ -24,7 +24,7 @@ void init()
 
 	in.close();
 
-	std::cout << "System is ready.\n";
+	std::cout << "System is ready." << std::endl;
 }
 
 int main()
