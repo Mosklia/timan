@@ -16,12 +16,7 @@ void init()
 	task tas;
 
 	std::fstream in;
-	in.open("list.txt", std::ios_base::in);
-	if (!in)
-	{
-		in.setstate(std::ios_base::goodbit);
-		in.open("list.txt", std::ios_base::in | std::ios_base::out);
-	}
+	in.open("list.txt", std::ios_base::in | std::ios_base::out);
 	while (in >> tas)
 	{
 		q.push(tas);
@@ -59,7 +54,7 @@ int main()
 				tas = q.top();
 				tas.printTo(std::cout);
 				std::string c;
-				std::cout << "\nsolved? ([y],n)\n";
+				std::cout << "\nSolved? ([y],n)\n";
 				std::cin >> c;
 				if (c == "y")
 					q.pop();
