@@ -38,7 +38,23 @@ struct task
 
     void in()
     {
-        std::cin >> name >> level >> ddl.tm_year >> ddl.tm_mon >> ddl.tm_mday;
+        std::cin >>name>>level;
+        char c=getchar();
+        int a[3]={0,0,0},i;
+        for(i=0;i<3;i++){
+            if(c=='\n')break;
+            while(c==' ') c=getchar();
+            while(c>='0'&&c<='9'){
+                a[i]*=10;
+                a[i]+=c-'0';
+                c=getchar();
+            }
+        }
+        ddl.tm_mday=a[0];
+        ddl.tm_mon=a[1];
+        ddl.tm_year=a[2];
+        if(i<3) ddl.tm_year=gettime().tm_year;
+        if(i<2) ddl.tm_mon=gettime().tm_mon;
     }
     void outf(std::ofstream &out)
     {
