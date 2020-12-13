@@ -1,12 +1,10 @@
 # timan
-TiMan -- A simple but powerful **(not powerful now)** timer manager by Drinch
+TiMan -- A simple but powerful **(not powerful enough now)** timer manager by Drinch
 
 英语太差，直接用中文了
 
-- 目标功能
+## 当前待解决的问题
 
-输入任务
+- 计算时间差
 
-任务排序
-
-提醒
+- 添加提醒
