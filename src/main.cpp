@@ -7,15 +7,13 @@
 #include <fstream>
 
 #include "task.h"
+#include "solve.h"
 
 std::priority_queue<task>q;
 int main() {
 	task tas;
-	std::ifstream in("list.txt", std::ios::in);
-	while(in>>tas.name>>tas.level>>tas.ddl.tm_year>>tas.ddl.tm_mon>>tas.ddl.tm_mday) q.push(tas);
-	in.close();
+	inputmodule(tas,q);
 	std::string command;
-	std::cout<<"System is ready.\n";
 	while(1) {
 		std::cout<<">";
 		std::cin>>command;
@@ -46,11 +44,6 @@ int main() {
 			continue;
 		}
 	}
-	std::ofstream out("list.txt", std::ios::out);
-	while(!q.empty()) {
-		tas=q.top();
-		tas.outf(out);
-		q.pop();
-	}
+	outputmodule(tas,q);
 	return 0;
 }

@@ -1,6 +1,13 @@
+#ifndef TASK
+#define TASK
+
+
 #include <string>
 #include <ctime>
 #include <iostream>
+#include <fstream>
+
+#include "timeman.h"
 
 /**
  * @brief Struct task -- Info about a task.
@@ -66,3 +73,4 @@ struct task
         printf("deadline:%04d-%02d-%02d", ddl.tm_year, ddl.tm_mon, ddl.tm_mday);
     }
 };
+#endif
