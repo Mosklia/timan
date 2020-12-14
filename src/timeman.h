@@ -2,6 +2,7 @@
 #define TIMEMAN
 
 #include <ctime>
+#include <iostream>
 
 /**
  * @brief Get current time.

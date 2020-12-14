@@ -1,7 +1,6 @@
 #ifndef TASK
 #define TASK
 
-
 #include <string>
 #include <ctime>
 #include <iostream>

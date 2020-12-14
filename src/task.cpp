@@ -1,4 +1,5 @@
 #include "timeman.h"
+#include "task.h"
 
 task &task::operator=(const task &t)
 {
