@@ -41,7 +41,8 @@ int main()
 			break;
 		else if (command == "add")
 		{
-			std::cout << "Please write down the task:\nname level deadline(year month day)\n";
+			std::cout << "Please write down the task:\n";
+			std::cout << "name level deadline(year month day)\n";
 			std::cin >> tas;
 			q.push(tas);
 		}
