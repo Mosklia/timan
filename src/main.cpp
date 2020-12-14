@@ -11,27 +11,16 @@
 
 std::priority_queue<task>q;
 int main() {
-	task tas;
-	inputmodule(tas,q);
+	inputmodule(q);
 	std::string command;
 	while(1) {
 		std::cout<<">";
 		std::cin>>command;
 		if(command=="exit") break;
 		else if(command=="add") {
-			std::cout<<"Please write down the task:\nname level deadline(year month day)\n";
-			tas.in();
-			q.push(tas);
+			add(q);
 		} else if(command=="check") {
-			if(q.empty()) std::cout<<"You have no task.\n";
-			else {
-				tas=q.top();
-				tas.out();
-				std::string c;
-				std::cout<<"\nsolved?\n[y],[n]\n";
-				std::cin>>c;
-				if(c=="y") q.pop();
-			}
+			check(q);
 		} else if(command=="list") {
 			list(q);
 		} else {
@@ -39,6 +28,6 @@ int main() {
 			continue;
 		}
 	}
-	outputmodule(tas,q);
+	outputmodule(q);
 	return 0;
 }

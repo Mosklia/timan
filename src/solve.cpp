@@ -1,18 +1,39 @@
 #include "solve.h"
 #include "task.h"
 
-void inputmodule(task &tas,std::priority_queue<task> &q) {
+void inputmodule(std::priority_queue<task> &q) {
+	task task_;
 	std::ifstream in("list.txt", std::ios::in);
-	while(in>>tas.name>>tas.level>>tas.ddl.tm_year>>tas.ddl.tm_mon>>tas.ddl.tm_mday) q.push(tas);
+	while(in>>task_.name>>task_.level>>task_.ddl.tm_year>>task_.ddl.tm_mon>>task_.ddl.tm_mday) q.push(task_);
 	in.close();
 	std::cout<<"System is ready.\n";
 }
-void outputmodule(task &tas,std::priority_queue<task> &q) {
+void outputmodule(std::priority_queue<task> &q) {
 	std::ofstream out("list.txt", std::ios::out);
+	task task_;
 	while(!q.empty()) {
-		tas=q.top();
-		tas.outf(out);
+		task_=q.top();
+		task_.outf(out);
 		q.pop();
+	}
+}
+
+//command
+void add(std::priority_queue<task> &q) {
+	task task_;
+	std::cout<<"Please write down the task:\nname level deadline(year month day)\n";
+	task_.in();
+	q.push(task_);
+}
+void check(std::priority_queue<task> &q) {
+	if(q.empty()) std::cout<<"You have no task.\n";
+	else {
+		task task_=q.top();
+		task_.out();
+		std::string c;
+		std::cout<<"\nsolved?\n[y],[n]\n";
+		std::cin>>c;
+		if(c=="y") q.pop();
 	}
 }
 void list(std::priority_queue<task> &q) {
