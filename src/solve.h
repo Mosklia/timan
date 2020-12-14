@@ -7,5 +7,6 @@
 
 void inputmodule(task &tas,std::priority_queue<task> &q);
 void outputmodule(task &tas,std::priority_queue<task> &q);
+void list(std::priority_queue<task> &q);
 
 #endif

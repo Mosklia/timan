@@ -33,12 +33,7 @@ int main() {
 				if(c=="y") q.pop();
 			}
 		} else if(command=="list") {
-			std::ifstream fin("list.txt", std::ios::in);
-			while(fin>>tas.name>>tas.level>>tas.ddl.tm_year>>tas.ddl.tm_mon>>tas.ddl.tm_mday) {
-				tas.out();
-				putchar('\n');
-			}
-			fin.close();
+			list(q);
 		} else {
 			std::cout<<"wrong\n";
 			continue;
