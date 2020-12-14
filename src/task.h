@@ -1,7 +1,14 @@
+#ifndef TASK
+#define TASK
+
+
 #include <string>
 #include <ctime>
 #include <iostream>
 #include <iomanip>
+#include <fstream>
+
+#include "timeman.h"
 
 /**
  * @brief Struct task -- Info about a task.
@@ -69,4 +76,4 @@ struct task
     void printTo(std::ostream &out) const;
 };
 
-#include "task.cpp"
+#endif

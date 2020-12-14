@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TIMEMAN
+#define TIMEMAN
+
 #include <ctime>
 
 /**
@@ -44,4 +46,4 @@ bool operator<(tm t1, tm t2);
  */
 int operator-(tm t1, tm t2); //计算时间差（精确到天）
 
-#include "timeman.cpp"
+#endif
